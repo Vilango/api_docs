@@ -1,8 +1,8 @@
-%table
-  - request_params.each do |key, value| 
-    %tr
-      %th= key
-      %td
+table
+  - request_params.each do |key, value|
+    tr
+      th= key
+      td
         - if value.is_a?(Hash)
           = render :partial => 'request_params', :object => value
         - else
