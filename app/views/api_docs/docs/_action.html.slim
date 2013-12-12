@@ -1,5 +1,4 @@
-table.table.table-bordered.table-condensed#api-doc-table
-  
+table.table.table-bordered.table-condensed#api-doc-table  
   - if action['meta'].present? && action['meta'].is_a?(Hash)
     - action['meta'].each do |k, v|
       tr
@@ -25,13 +24,11 @@ table.table.table-bordered.table-condensed#api-doc-table
   tr.info
     th Response
     td
-      span.label class=((action['status'].to_s[0] == '4') ? 'label-important' : 'label-success') 
+      span.label class=((action['status'].to_s[0] == '4') ? 'label-danger' : 'label-success') 
         = action['status']
   
   tr
     th Body
     td
       pre
-        = preserve do
-          escaped:
-            #{ JSON.pretty_generate(JSON.parse(action['body'])) rescue action['body'] }
+        | #{{JSON.pretty_generate(JSON.parse(action['body'])) rescue action['body'] }}
